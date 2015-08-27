@@ -2,7 +2,10 @@ from __future__ import absolute_import, division, unicode_literals
 
 import re
 from xml.sax.saxutils import escape, unescape
-from six.moves import urllib_parse as urlparse
+try:
+  from six.moves import urllib_parse as urlparse
+except ImportError:
+  from six.moves.urllib import parse as urlparse
 
 from .tokenizer import HTMLTokenizer
 from .constants import tokenTypes
